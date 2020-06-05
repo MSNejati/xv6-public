@@ -1,21 +1,18 @@
 #include "types.h"
 #include "stat.h"
 #include "user.h"
-#include "param.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 int main(void)
 {
-    time_t t;
-    srand((unsigned)time(&t));
     int pid = fork();
     if (pid == 0)
     {
         fork();
         fork();
         fork();
-        int *ptr = (int *)malloc((rand() % 100) * 1000);
+        int processId = getpid();
+        int *ptr;
+        ptr = malloc(100000 * processId);
         ptr++;
         while (1)
         {
@@ -25,4 +22,5 @@ int main(void)
     {
         sleep(2);
     }
+    exit();
 }

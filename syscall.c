@@ -103,7 +103,7 @@ extern int sys_unlink(void);
 extern int sys_wait(void);
 extern int sys_write(void);
 extern int sys_uptime(void);
-extern int sys_procInfo(void);
+extern int sys_procInfo(void);    // Add prototype for new system call named "procInfo"
 
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
@@ -127,7 +127,7 @@ static int (*syscalls[])(void) = {
 [SYS_link]    sys_link,
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
-[SYS_procInfo] sys_procInfo,
+[SYS_procInfo] sys_procInfo,     // Add pointer for new system call function here
 };
 
 void

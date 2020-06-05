@@ -20,4 +20,4 @@
 #define SYS_link 19
 #define SYS_mkdir 20
 #define SYS_close 21
-#define SYS_procInfo 22
+#define SYS_procInfo 22    // Give a number to system call named "procInfo"

@@ -2,6 +2,7 @@
 #include "stat.h"
 #include "user.h"
 
+// We create some processes here and allocate memory to them
 int main(void)
 {
     int pid = fork();

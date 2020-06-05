@@ -90,12 +90,14 @@ sys_uptime(void)
   return xticks;
 }
 
+
+// Implement new system call named "procInfo" here
 int
-sys_procInfo(void)
+sys_procInfo(void) 
 {
   struct proc_info *plist;
     if(argptr(0, (void*)&plist, sizeof(*plist)) < 0)
         return -1;
-    getProcess(plist);
+    getProcess(plist);      // I use this function to find and sort running or runnable processes. I defined this function in proc.c file.
     return 0;
 }

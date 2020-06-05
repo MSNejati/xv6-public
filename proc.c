@@ -533,8 +533,11 @@ procdump(void)
   }
 }
 
+
+// This function would find and sort running or runnable processes.
 void getProcess(struct proc_info * plist){
   
+  // filter the processes
   acquire(&ptable.lock);
   int pcounter = 0;
   for(struct proc *p = ptable.proc; p < &ptable.proc[NPROC]; p++){
@@ -546,6 +549,7 @@ void getProcess(struct proc_info * plist){
   }
   release(&ptable.lock);
 
+  // sort the processes
   int i, key, j;
   for (i = 1; i < pcounter; i++) {
       key = (plist + i)->memsize;

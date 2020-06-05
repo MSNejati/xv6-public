@@ -3,6 +3,7 @@
 #include "user.h"
 #include "param.h"
 
+// Call new system call named "procInfo" and print the result
 int main(void)
 {
     struct proc_info *processInfo;

@@ -93,9 +93,9 @@ sys_uptime(void)
 int
 sys_procInfo(void)
 {
-  struct proc_info *pi;
-    if(argptr(0, (void*)&pi, sizeof(*pi)) < 0)
+  struct proc_info *plist;
+    if(argptr(0, (void*)&plist, sizeof(*plist)) < 0)
         return -1;
-    procinfo(pi);
+    getProcess(plist);
     return 0;
 }

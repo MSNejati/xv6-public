@@ -21,7 +21,7 @@ int main(void)
     }
     else
     {
-        sleep(2);
+        sleep(10);
     }
     exit();
 }

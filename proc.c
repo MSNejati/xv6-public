@@ -532,3 +532,29 @@ procdump(void)
     cprintf("\n");
   }
 }
+
+void getProcess(struct proc_info * plist){
+  
+  acquire(&ptable.lock);
+  int pcounter = 0;
+  for(struct proc *p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+    if(p->state == RUNNING || p->state == RUNNABLE){
+      (plist + pcounter)->memsize = (int)p->sz;
+      (plist + pcounter)->pid = (int)p->pid;
+      pcounter++;
+    }
+  }
+  release(&ptable.lock);
+
+  int i, key, j;
+  for (i = 1; i < pcounter; i++) {
+      key = (plist + i)->memsize;
+      j = i - 1;
+      while (j >= 0 && (plist + j)->memsize > key) {
+          *(plist + j + 1) = *(plist + j);
+          j = j - 1;
+      }
+      (plist + j + 1)->memsize = key;
+  }
+  return;
+}

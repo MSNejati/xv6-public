@@ -89,3 +89,13 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+int
+sys_procInfo(void)
+{
+  struct proc_info *pi;
+    if(argptr(0, (void*)&pi, sizeof(*pi)) < 0)
+        return -1;
+    procinfo(pi);
+    return 0;
+}

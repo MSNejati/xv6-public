@@ -101,3 +101,20 @@ sys_procInfo(void)
     getProcess(plist);      // I use this function to find and sort running or runnable processes. I defined this function in proc.c file.
     return 0;
 }
+
+
+// Implement new system call named "waitx" here
+int
+sys_waitx(void) 
+{
+  int *wtime;
+  int *rtime;
+  
+  if(argptr(0, (char**)&wtime, sizeof(int)) < 0)
+    return -1;
+
+  if(argptr(1, (char**)&rtime, sizeof(int)) < 0)
+    return -1;
+
+  return waitx(wtime, rtime);
+}

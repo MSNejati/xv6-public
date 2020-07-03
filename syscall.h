@@ -21,3 +21,4 @@
 #define SYS_mkdir 20
 #define SYS_close 21
 #define SYS_procInfo 22    // Give a number to system call named "procInfo"
+#define SYS_waitx 23       // Give a number to system call named "waitx"

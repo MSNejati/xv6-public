@@ -103,7 +103,7 @@ sys_procInfo(void)
 }
 
 
-// Implement new system call named "waitx" here
+// Implement new system call named "waitx" here.
 int
 sys_waitx(void) 
 {
@@ -116,5 +116,5 @@ sys_waitx(void)
   if(argptr(1, (char**)&rtime, sizeof(int)) < 0)
     return -1;
 
-  return waitx(wtime, rtime);
+  return waitx(wtime, rtime);     // It passes the parameters "rtime", "wtime" to the "waitx()" in proc.c
 }

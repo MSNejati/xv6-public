@@ -123,7 +123,8 @@ void            wakeup(void*);
 void            yield(void);
 void            getProcess(struct proc_info*);
 int             waitx(int *,int *);
-int             setp(int, int);
+int             cps(void);
+int             setp(int pid, int priority);
 
 // swtch.S
 void            swtch(struct context**, struct context*);

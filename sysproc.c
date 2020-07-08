@@ -119,6 +119,12 @@ sys_waitx(void)
   return waitx(wtime, rtime);     // It passes the parameters "rtime", "wtime" to the "waitx()" in proc.c
 }
 
+int
+sys_cps(void)
+{
+  return cps();
+}
+
 // Implement new system call named "setp" here.
 int
 sys_setp(void)
@@ -129,5 +135,5 @@ sys_setp(void)
     if(argint(1, &priority) < 0)
         return -1;
 
-    return chpr(pid, priority);
+    return setp(pid, priority);
 }

@@ -22,3 +22,5 @@
 #define SYS_close 21
 #define SYS_procInfo 22    // Give a number to system call named "procInfo"
 #define SYS_waitx 23       // Give a number to system call named "waitx"
+#define SYS_setp 24        // Give a number to set_priority system call 
+ 
